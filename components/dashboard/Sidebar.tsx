@@ -31,7 +31,7 @@ export function DashboardSidebar() {
       <SidebarHeader className="p-6">
         <div className="flex items-center gap-2">
           <Circle className="w-5 h-5 text-[#BFFF00] fill-[#BFFF00]" />
-          <span className="text-white font-bold text-xl tracking-wide">Nuance</span>
+          <span className="text-white font-bold text-xl tracking-wide">Monitor110</span>
         </div>
       </SidebarHeader>
       <SidebarContent className="px-3">
