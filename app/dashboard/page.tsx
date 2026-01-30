@@ -12,13 +12,13 @@ export default function DashboardPage() {
       <DashboardHeader />
       
       <div className="grid grid-cols-12 gap-6 pb-12">
-        {/* Row 1: Currency, Chart, Savings */}
+        {/* Row 1: Currency, Credit Card, Savings */}
         <CurrencyCard />
-        <ActivityChart />
+        <GlassCreditCard />
         <SavingsCard />
         
-        {/* Row 2: Digital Card, AI Promo, Transactions */}
-        <GlassCreditCard />
+        {/* Row 2: Chart, AI Promo, Transactions */}
+        <ActivityChart />
         <AIPromoCard />
         <TransactionsList />
       </div>

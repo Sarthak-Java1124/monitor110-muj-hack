@@ -40,8 +40,8 @@ export function DashboardSidebar() {
             <SidebarMenuItem key={item.label}>
               <SidebarMenuButton 
                 asChild
-                className={`w-full justify-start text-[#94A3B8] hover:text-white hover:bg-white/5 transition-all ${
-                   pathname === item.href ? 'text-white bg-white/5' : ''
+                className={`w-full justify-start text-[#94A3B8] hover:text-[#BFFF00] hover:bg-[#BFFF00]/10 transition-all ${
+                   pathname === item.href ? 'text-[#BFFF00] bg-[#BFFF00]/10 border-l-2 border-[#BFFF00]' : ''
                 }`}
               >
                 <a href={item.href} className="flex items-center gap-3 py-3">

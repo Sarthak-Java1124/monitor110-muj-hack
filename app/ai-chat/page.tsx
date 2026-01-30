@@ -1,6 +1,6 @@
-'use client';
-
+"use client"
 import { useReducer, useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Navbar } from '@/components/Navbar';
 import { ChatLayout } from '@/components/ai-chat/ChatLayout';
 import { ChatHeader } from '@/components/ai-chat/ChatHeader';
@@ -44,6 +44,8 @@ function reducer(state: State, action: Action): State {
 export default function AIChatPage() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const searchParams = useSearchParams();
+  const contextTicker = searchParams.get('context');
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -51,6 +53,19 @@ export default function AIChatPage() {
         messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [state.messages]);
+
+  // Initial Context Message
+  useEffect(() => {
+     if (contextTicker) {
+         const initialMsg: Message = {
+             id: 'init-context',
+             role: 'assistant',
+             content: `I see you're interested in ${contextTicker}. I've pulled the latest real-time data. Would you like a technical analysis, sentiment report, or whale movement summary?`,
+             timestamp: new Date().toISOString()
+         };
+         dispatch({ type: 'ADD_MESSAGE', payload: initialMsg });
+     }
+  }, [contextTicker]);
 
   const handleSend = async () => {
     if (!state.input.trim() || state.isLoading) return;

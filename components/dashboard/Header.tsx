@@ -1,5 +1,5 @@
 'use client';
-import { MoveRight, ArrowUpRight, ArrowDownLeft } from 'lucide-react';
+import { ArrowUpRight, ArrowDownLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function DashboardHeader() {
@@ -11,27 +11,21 @@ export function DashboardHeader() {
         </h1>
         <p className="text-[#94A3B8] text-sm flex items-center gap-2">
           Last transaction: You have earned 
-          <span className="text-green-400 font-semibold">+$205.99</span> 
+          <span className="text-monee-green font-semibold">+$205.99</span> 
           from James • 2 mins ago
         </p>
       </div>
 
       <div className="flex gap-4">
-        {[
-            { label: 'Move Money', icon: MoveRight },
-            { label: 'Request', icon: ArrowDownLeft },
-            { label: 'Transfer', icon: ArrowUpRight }
-        ].map((action, i) => (
-            <motion.button
-                key={action.label}
-                whileHover={{ scale: 1.05, backgroundColor: "#6D28D9" }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-colors shadow-lg shadow-purple-900/20"
-            >
-                {action.label}
-                <action.icon className="w-4 h-4" />
-            </motion.button>
-        ))}
+        <button className="flex items-center gap-2 bg-monee-green hover:brightness-110 text-black px-6 py-3 rounded-xl font-bold transition-all shadow-[0_0_20px_-5px_#BFFF00]">
+          Move Money <ArrowUpRight className="w-4 h-4" />
+        </button>
+        <button className="flex items-center gap-2 border border-white/10 hover:border-monee-green/50 hover:bg-monee-green/10 text-white hover:text-monee-green px-6 py-3 rounded-xl font-medium transition-all">
+          Request <ArrowDownLeft className="w-4 h-4" />
+        </button>
+        <button className="flex items-center gap-2 border border-white/10 hover:border-monee-green/50 hover:bg-monee-green/10 text-white hover:text-monee-green px-6 py-3 rounded-xl font-medium transition-all">
+          Transfer <ArrowUpRight className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );

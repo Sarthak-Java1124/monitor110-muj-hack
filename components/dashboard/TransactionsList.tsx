@@ -19,7 +19,7 @@ export function TransactionsList() {
                 {transactions.map((tx, i) => (
                     <div key={i} className="flex items-center justify-between p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group">
                         <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sm shadow-sm border border-white/5 group-hover:border-purple-500/30 transition-colors">
+                            <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sm shadow-sm border border-white/5 group-hover:border-[#BFFF00]/30 transition-colors">
                                 {tx.icon}
                             </div>
                             <div>
@@ -27,7 +27,7 @@ export function TransactionsList() {
                                 <div className="text-slate-500 text-[10px]">{tx.date}</div>
                             </div>
                         </div>
-                        <div className={`font-semibold text-xs ${tx.type === 'income' ? 'text-green-400' : 'text-white'}`}>
+                        <div className={`font-semibold text-xs ${tx.type === 'income' ? 'text-[#BFFF00]' : 'text-white'}`}>
                             {tx.amount}
                         </div>
                     </div>

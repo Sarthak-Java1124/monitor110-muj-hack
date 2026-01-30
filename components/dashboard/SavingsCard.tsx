@@ -3,9 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plane, ShoppingBag, GraduationCap, AlertCircle, Plus } from 'lucide-react';
 
 const categories = [
-    { icon: Plane, label: 'Travel', color: 'bg-blue-500/20 text-blue-400' },
-    { icon: ShoppingBag, label: 'Shop', color: 'bg-pink-500/20 text-pink-400' },
-    { icon: GraduationCap, label: 'Edu', color: 'bg-yellow-500/20 text-yellow-400' },
+    { icon: Plane, label: 'Travel', color: 'bg-[#BFFF00]/10 text-[#BFFF00]' },
+    { icon: ShoppingBag, label: 'Shop', color: 'bg-[#BFFF00]/20 text-[#BFFF00]' },
+    { icon: GraduationCap, label: 'Edu', color: 'bg-[#BFFF00]/10 text-[#BFFF00]' },
     { icon: AlertCircle, label: 'Emerg', color: 'bg-red-500/20 text-red-400' },
 ];
 
@@ -14,7 +14,7 @@ export function SavingsCard() {
     <Card className="col-span-12 md:col-span-3 lg:col-span-4 bg-[#14141A] border-white/5 self-start">
        <CardHeader className="flex flex-row items-center justify-between pb-2 p-3">
             <CardTitle className="text-white text-xs font-medium">Savings Wallet</CardTitle>
-            <button className="text-[#7C3AED] hover:text-white transition-colors">
+            <button className="text-[#BFFF00] hover:text-white transition-colors">
                 <Plus className="w-4 h-4" />
             </button>
        </CardHeader>

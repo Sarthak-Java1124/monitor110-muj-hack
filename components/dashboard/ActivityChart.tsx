@@ -17,7 +17,7 @@ const data = [
 
 export function ActivityChart() {
   return (
-    <Card className="col-span-12 md:col-span-6 lg:col-span-5 bg-[#14141A] border-white/5 shadow-lg">
+    <Card className="col-span-12 md:col-span-6 lg:col-span-4 bg-[#14141A] border-white/5 shadow-lg">
       <CardHeader>
         <CardTitle className="text-white text-lg font-medium">Show your money flow</CardTitle>
       </CardHeader>
@@ -26,8 +26,8 @@ export function ActivityChart() {
           <AreaChart data={data}>
             <defs>
               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#7C3AED" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#7C3AED" stopOpacity={0}/>
+                <stop offset="5%" stopColor="#BFFF00" stopOpacity={0.3}/>
+                <stop offset="95%" stopColor="#BFFF00" stopOpacity={0}/>
               </linearGradient>
             </defs>
             <XAxis 
@@ -41,12 +41,12 @@ export function ActivityChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1E1E26', border: 'none', borderRadius: '8px', color: '#fff' }}
               itemStyle={{ color: '#fff' }}
-              cursor={{ stroke: '#7C3AED', strokeWidth: 1, strokeDasharray: '4 4' }}
+              cursor={{ stroke: '#BFFF00', strokeWidth: 1, strokeDasharray: '4 4' }}
             />
             <Area 
               type="monotone" 
               dataKey="value" 
-              stroke="#7C3AED" 
+              stroke="#BFFF00" 
               strokeWidth={3}
               fillOpacity={1} 
               fill="url(#colorValue)" 
