@@ -3,8 +3,13 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { NeonButton } from './ui/NeonButton';
 import { Apple } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export function Hero() {
+  const router = useRouter();
+  const handleDemoClick = ()=>{
+    router.push('/dashboard');
+  }
   return (
     <section className="relative w-full h-screen flex items-center overflow-hidden">
       
@@ -49,7 +54,7 @@ export function Hero() {
            animate={{ opacity: 1 }}
            transition={{ delay: 0.5 }}
         >
-          <NeonButton className="mb-20">
+          <NeonButton className="mb-20" onClick={handleDemoClick}>
             Explore-&gt;
           </NeonButton>
         </motion.div>
