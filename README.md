@@ -10,6 +10,8 @@ Monitor110 is a next-generation financial intelligence platform designed for pro
 
 Monitor110 bridges the gap between raw market data and intelligent decision-making. The platform provides a terminal-style interface that tracks institutional money flows in real-time, detects market divergences between price action and social sentiment, and offers AI-powered analysis for deep market understanding.
 
+## Preview our app at : https://www.youtube.com/watch?v=rCet1U6EAkI
+
 **The Problem We Solve:**
 - Institutional movements often precede major market shifts, but tracking them manually is impossible
 - Price and sentiment can diverge significantly, creating opportunities that are hard to spot
@@ -196,4 +198,3 @@ Monitor110 is designed to evolve with the market. Future enhancements include:
 ![alt text](<Screenshot (192).png>)
 
 
-<video controls src="Screen Recording 2026-01-31 at 05.53.57.mov" title="Title"></video>
