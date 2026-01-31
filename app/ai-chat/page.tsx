@@ -41,7 +41,9 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-export default function AIChatPage() {
+import { Suspense } from 'react';
+
+function AIChatContent() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const searchParams = useSearchParams();
@@ -118,5 +120,13 @@ export default function AIChatPage() {
            </div>
        </ChatLayout>
     </>
+  );
+}
+
+export default function AIChatPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-[#BFFF00]">Loading AI Context...</div>}>
+      <AIChatContent />
+    </Suspense>
   );
 }

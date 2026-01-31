@@ -33,7 +33,9 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-export default function AISearchPage() {
+import { Suspense } from 'react';
+
+function AISearchContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const urlQuery = searchParams.get('q');
@@ -106,5 +108,13 @@ export default function AISearchPage() {
         </div>
       </SearchLayout>
     </>
+  );
+}
+
+export default function AISearchPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-[#BFFF00]">Initializing Search Engine...</div>}>
+      <AISearchContent />
+    </Suspense>
   );
 }
