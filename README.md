@@ -189,8 +189,7 @@ Monitor110 is designed to evolve with the market. Future enhancements include:
 ## 📸 Additional Screenshot Slots
 
 ![alt text](<Screenshot (186).png>)
-
-![alt text](<Screenshot (186)-1.png>)
+![alt text](<Screenshot (190).png>)
 
 ![alt text](<Screenshot (193).png>)
 
