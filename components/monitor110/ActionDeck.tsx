@@ -1,55 +1,75 @@
 'use client';
-import { HudContainer, HudHeader } from "./Shared";
-import { AlertTriangle } from "lucide-react";
+
+import { Zap, ArrowUp, ArrowDown, History } from 'lucide-react';
+
+const orderBook = [
+    { price: '65,850.50', size: '0.45', type: 'sell' },
+    { price: '65,845.00', size: '1.20', type: 'sell' },
+    { price: '65,840.50', size: '0.15', type: 'sell' },
+    { price: '65,835.00', size: '0.88', type: 'sell' },
+    { price: '65,830.50', size: '2.50', type: 'buy' },
+    { price: '65,825.00', size: '0.50', type: 'buy' },
+    { price: '65,820.50', size: '1.10', type: 'buy' },
+    { price: '65,815.00', size: '3.40', type: 'buy' },
+    { price: '65,810.00', size: '0.25', type: 'buy' },
+    { price: '65,805.50', size: '0.10', type: 'buy' },
+];
 
 export function ActionDeck() {
   return (
-    <HudContainer className="h-full flex flex-col gap-4 p-4 !border-none !bg-transparent !overflow-visible">
-        
-        {/* AI Insight Card */}
-        <div className="bg-[#1a1a1a] border border-yellow-500/30 p-4 rounded-sm relative overflow-hidden">
-             <div className="absolute top-0 right-0 p-2 opacity-20">
-                <AlertTriangle className="w-12 h-12 text-yellow-500" />
-             </div>
-             <div className="relative z-10">
-                 <div className="flex items-center gap-2 mb-2">
-                    <AlertTriangle className="w-4 h-4 text-yellow-500" />
-                    <span className="text-yellow-500 font-bold font-mono text-xs">BEARISH STRUCTURE</span>
-                 </div>
-                 <p className="text-xs text-slate-400 leading-relaxed font-mono">
-                    Whale outflows exceeding retail buy pressure by 3.2x. Hedges recommended.
-                 </p>
-             </div>
+    <div className="h-full border border-[#BFFF00]/20 bg-black flex flex-col relative group">
+        {/* Header */}
+        <div className="p-2 border-b border-[#BFFF00]/20 flex justify-between items-center bg-[#BFFF00]/5">
+            <div className="flex items-center gap-2">
+                <Zap className="w-4 h-4 text-[#BFFF00]" />
+                <span className="text-[#BFFF00] font-bold text-xs tracking-wider">DEPTH_MARKET</span>
+            </div>
         </div>
 
-        {/* Execution Panel */}
-        <div className="flex-1 bg-white p-1 rounded-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] flex flex-col">
-             <div className="flex-1 bg-[#e5e5e5] p-4 relative" style={{ backgroundImage: 'radial-gradient(#999 1px, transparent 1px)', backgroundSize: '10px 10px' }}>
-                 <div className="absolute top-0 left-0 w-full h-2 bg-[linear-gradient(45deg,transparent_5px,#fff_5px)] bg-[length:10px_10px]" />
-                 
-                 <h3 className="text-black font-mono font-bold text-sm mb-4 border-b border-black/10 pb-2">ONE-CLICK EXECUTION</h3>
-                 
-                 <div className="space-y-2">
-                    <button className="w-full py-3 bg-[#2a2a2a] text-white font-mono text-xs hover:bg-black transition-colors flex justify-between px-4">
-                        <span>OPEN SHORT 1x</span>
-                        <span className="text-red-400">HEDGE</span>
-                    </button>
-                    <button className="w-full py-3 bg-[#2a2a2a] text-white font-mono text-xs hover:bg-black transition-colors flex justify-between px-4">
-                        <span>SWAP TO STABLES</span>
-                        <span className="text-blue-400">SAFETY</span>
-                    </button>
-                 </div>
-
-                 <div className="mt-8 pt-4 border-t border-dashed border-black/20">
-                     <button className="w-full py-4 bg-black text-white font-bold font-mono hover:scale-[1.02] transition-transform shadow-xl">
-                        CONFIRM EXECUTION
-                     </button>
-                 </div>
+        {/* Order Book */}
+        <div className="flex-1 overflow-auto p-2 font-mono text-[11px] scrollbar-hide">
+             <div className="flex justify-between text-slate-500 mb-2 px-2 uppercase text-[9px]">
+                 <span>Price (USD)</span>
+                 <span>Size (BTC)</span>
              </div>
              
-             {/* Receipt jagged edge */}
-             <div className="h-3 w-full bg-[#e5e5e5]" style={{ clipPath: 'polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%)' }} />
+             <div className="space-y-0.5">
+                 {orderBook.map((order, i) => (
+                    <div key={i} className="flex justify-between items-center px-2 py-0.5 hover:bg-white/5 cursor-pointer relative overflow-hidden">
+                        
+                        {/* Depth Bar Background */}
+                        <div 
+                            className={`absolute right-0 top-0 bottom-0 opacity-10 ${order.type === 'sell' ? 'bg-red-500' : 'bg-[#BFFF00]'}`}
+                            style={{ width: `${Math.random() * 100}%` }}
+                        />
+
+                        <span className={`relative z-10 ${order.type === 'sell' ? 'text-red-500' : 'text-[#BFFF00]'}`}>
+                            {order.price}
+                        </span>
+                        <span className="relative z-10 text-white font-medium">
+                            {order.size}
+                        </span>
+                    </div>
+                 ))}
+             </div>
         </div>
-    </HudContainer>
+
+        {/* Action Buttons */}
+        <div className="p-3 border-t border-[#BFFF00]/20 grid grid-cols-2 gap-2">
+            <button className="bg-[#BFFF00] hover:bg-[#9ecc00] text-black font-bold py-3 text-xs rounded uppercase tracking-wider flex items-center justify-center gap-1 transition-all">
+                <ArrowUp className="w-3 h-3" /> Buy
+            </button>
+            <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 text-xs rounded uppercase tracking-wider flex items-center justify-center gap-1 transition-all">
+                <ArrowDown className="w-3 h-3" /> Sell
+            </button>
+        </div>
+
+        <div className="p-2 border-t border-white/5 flex justify-center text-[10px] text-slate-500 hover:text-[#BFFF00] cursor-pointer transition-colors">
+            <div className="flex items-center gap-1">
+                <History className="w-3 h-3" />
+                <span>VIEW HISTORY</span>
+            </div>
+        </div>
+    </div>
   );
 }

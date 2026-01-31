@@ -58,7 +58,7 @@ export default function AISearchPage() {
       <div className="absolute top-0 w-full z-50">
           <Navbar />
       </div>
-      <SearchLayout className={urlQuery ? "items-start pt-32 h-auto min-h-screen" : ""}>
+      <SearchLayout className={urlQuery ? "items-start pt-32 h-auto min-h-screen" : "pt-28"}>
         <div className="flex flex-col items-center text-center z-10 relative w-full transition-all duration-500">
           
           {/* Header Section - Compact if searching */}

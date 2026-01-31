@@ -19,7 +19,7 @@ import { usePathname } from 'next/navigation';
 const menuItems = [
   { icon: Home, label: 'Home', href: '/dashboard' },
   { icon: Wallet, label: 'Wallet', href: '/dashboard/wallet' },
-  { icon: PieChart, label: 'Analytics', href: '/dashboard/analytics' },
+  { icon: PieChart, label: 'Analytics', href: '/dashboard-professional' },
   { icon: Settings, label: 'Settings', href: '/dashboard/settings' },
 ];
 

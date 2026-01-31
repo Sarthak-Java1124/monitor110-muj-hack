@@ -99,7 +99,7 @@ export default function AIChatPage() {
        <div className="absolute top-0 w-full z-50">
           <Navbar />
        </div>
-       <ChatLayout>
+       <ChatLayout className="pt-28">
            {/* If no messages, show Header */}
            {state.messages.length === 0 && <ChatHeader />}
 
